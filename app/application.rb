@@ -3,13 +3,13 @@ class Application
     resp = Rack::Response.new
     
     current_time = Time.new
-    if current_time.hour.to_i < 12
+    if current_time.hour.to_i > 12
       resp.write "#{current_time.inspect}"
       resp.write "#{current_time.zone}"
-      resp.write "Good Morning!"
+      resp.write "Good Afternoon!"
     else
       resp.write "#{current_time.hour}"
-      resp.write "Good Afternoon!"
+      resp.write "Good Morning!"
     end
     
     resp.finish
